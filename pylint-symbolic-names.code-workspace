@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.trimTrailingWhitespace": true,
+		"python.formatting.provider": "yapf",
+		"python.formatting.yapfArgs": [
+			"--style",
+			"{COLUMN_LIMIT=100, DEDENT_CLOSING_BRACKETS=True, ALIGN_CLOSING_BRACKET_WITH_VISUAL_INDENT=True, SPLIT_ARGUMENTS_WHEN_COMMA_TERMINATED=True, EACH_DICT_ENTRY_ON_SEPARATE_LINE=True}"
+		],
+		"python.jediEnabled": false,
+	}
+}
