@@ -1,7 +1,7 @@
 """Finds built-in pylint messages and generates a README.md file containing their definitions."""
 import inspect
 import pkgutil
-from pylint import checkers
+from pylint import checkers, __version__ as pylint_version
 
 README_HEADER = (
     '# Pylint Symbolic Names\n\n'
@@ -11,6 +11,7 @@ README_HEADER = (
     'This list was automatically generated using [generate.py](generate.py). You can '
     'also get the list of messages yourself with the built-in pylint command `pylint --list-msgs`.'
     '\n\n'
+    '_pylint version: {pylint_version}_\n\n'
     '| Code | Symbolic Name | Message |\n'
     '| ---- |-------------- | ------- |\n'
 )
@@ -19,7 +20,7 @@ README_HEADER = (
 def generate_readme(messages: dict, filename: str):
     """Generates a markdown file containing a table with the list of pylint messages."""
     with open(filename, 'w') as readme_file:
-        readme_file.write(README_HEADER)
+        readme_file.write(README_HEADER.format(pylint_version=pylint_version))
         for key, value in sorted(messages.items()):
             readme_file.write(
                 '| {code} | `{symbolic_name}` | {message} |\n'.format(
