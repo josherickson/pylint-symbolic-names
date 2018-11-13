@@ -4,10 +4,12 @@ The list of symbolic names for every pylint message, which are particularly usef
 
 This list was automatically generated using [generate.py](generate.py). You can also get the list of messages yourself with the built-in pylint command `pylint --list-msgs`.
 
+_pylint version: 2.1.1_
+
 | Code | Symbolic Name | Message |
 | ---- |-------------- | ------- |
 | C0102 | `blacklisted-name` | Black listed name "%s" |
-| C0103 | `invalid-name` | Invalid %s name "%s"%s |
+| C0103 | `invalid-name` | %s name "%s" doesn't conform to %s |
 | C0111 | `missing-docstring` | Missing %s docstring |
 | C0112 | `empty-docstring` | Empty %s docstring |
 | C0113 | `unneeded-not` | Consider changing "%s" to "%s" |
@@ -38,8 +40,9 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | C0411 | `wrong-import-order` | %s should be placed before %s |
 | C0412 | `ungrouped-imports` | Imports from package %s are not grouped |
 | C0413 | `wrong-import-position` | Import "%s" should be placed at the top of the module |
+| C0414 | `useless-import-alias` | Import alias does not rename original package |
 | C1001 | `old-style-class` | Old-style class defined. |
-| C1801 | `len-as-condition` | Do not use \`len(SEQUENCE)\` as condition value |
+| C1801 | `len-as-condition` | Do not use \`len(SEQUENCE)\` to determine if a sequence is empty |
 | E0100 | `init-is-generator` | \_\_init\_\_ method is a generator |
 | E0101 | `return-in-init` | Explicit return in \_\_init\_\_ |
 | E0102 | `function-redefined` | %s already defined line %s |
@@ -58,6 +61,7 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | E0116 | `continue-in-finally` | 'continue' not supported inside 'finally' clause |
 | E0117 | `nonlocal-without-binding` | nonlocal name %s found without binding |
 | E0118 | `used-prior-global-declaration` | Name %r is used prior to global declaration |
+| E0119 | `misplaced-format-function` | format function is not called on str |
 | E0202 | `method-hidden` | An attribute defined in %s line %s hides this method |
 | E0203 | `access-member-before-definition` | Access to member %r before its definition line %s |
 | E0211 | `no-method-argument` | Method has no argument |
@@ -113,6 +117,7 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | E1137 | `unsupported-assignment-operation` | %r does not support item assignment |
 | E1138 | `unsupported-delete-operation` | %r does not support item deletion |
 | E1139 | `invalid-metaclass` | Invalid metaclass %r used |
+| E1140 | `unhashable-dict-key` | Dict key is unhashable |
 | E1200 | `logging-unsupported-format` | Unsupported logging format character %r (%#02x) at index %d |
 | E1201 | `logging-format-truncated` | Logging format string ends in middle of conversion specifier |
 | E1205 | `logging-too-many-args` | Too many arguments for logging format string |
@@ -125,6 +130,7 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | E1305 | `too-many-format-args` | Too many arguments for format string |
 | E1306 | `too-few-format-args` | Not enough arguments for format string |
 | E1310 | `bad-str-strip-call` | Suspicious argument in %s.%s call |
+| E1507 | `invalid-envvar-value` | %s does not support %s type argument |
 | E1601 | `print-statement` | print statement used |
 | E1602 | `parameter-unpacking` | Parameter unpacking specified |
 | E1603 | `unpacking-in-except` | Implicit unpacking of exceptions is not supported in Python 3 |
@@ -134,13 +140,18 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | E1607 | `old-ne-operator` | Use of the <> operator |
 | E1608 | `old-octal-literal` | Use of old octal literal |
 | E1609 | `import-star-module-level` | Import \* only allowed at module level |
+| E1610 | `non-ascii-bytes-literal` | Non-ascii bytes literals not supported in 3.x |
 | E1700 | `yield-inside-async-function` | Yield inside async function |
 | E1701 | `not-async-context-manager` | Async context manager '%s' doesn't implement \_\_aenter\_\_ and \_\_aexit\_\_. |
 | F0202 | `method-check-failed` | Unable to check methods signature (%s / %s) |
+| I0023 | `use-symbolic-message-instead` | %s |
+| I1101 | `c-extension-no-member` | %s %r has no %r member%s, but source is unavailable. Consider adding this module to extension-pkg-whitelist if you want to perform analysis based on run-time introspection of living objects. |
 | R0123 | `literal-comparison` | Comparison to literal |
+| R0124 | `comparison-with-itself` | Redundant comparison - %s |
 | R0201 | `no-self-use` | Method could be a function |
 | R0202 | `no-classmethod-decorator` | Consider using a decorator instead of calling classmethod |
 | R0203 | `no-staticmethod-decorator` | Consider using a decorator instead of calling staticmethod |
+| R0205 | `useless-object-inheritance` | Class %r inherits from object, can be safely removed from bases in python3 |
 | R0401 | `cyclic-import` | Cyclic import (%s) |
 | R0801 | `duplicate-code` | Similar lines in %s files %s |
 | R0901 | `too-many-ancestors` | Too many ancestors (%s/%s) |
@@ -157,9 +168,20 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | R1702 | `too-many-nested-blocks` | Too many nested blocks (%s/%s) |
 | R1703 | `simplifiable-if-statement` | The if statement can be replaced with %s |
 | R1704 | `redefined-argument-from-local` | Redefining argument with the local name %r |
-| R1705 | `no-else-return` | Unnecessary "else" after "return" |
-| R1706 | `consider-using-ternary` | Consider using ternary (%s if %s else %s) |
+| R1705 | `no-else-return` | Unnecessary "%s" after "return" |
+| R1706 | `consider-using-ternary` | Consider using ternary (%s) |
 | R1707 | `trailing-comma-tuple` | Disallow trailing comma tuple |
+| R1708 | `stop-iteration-return` | Do not raise StopIteration in generator, use return statement instead |
+| R1709 | `simplify-boolean-expression` | Boolean expression may be simplified to %s |
+| R1710 | `inconsistent-return-statements` | Either all return statements in a function should return an expression, or none of them should. |
+| R1711 | `useless-return` | Useless return at end of function or method |
+| R1712 | `consider-swap-variables` | Consider using tuple unpacking for swapping variables |
+| R1713 | `consider-using-join` | Consider using str.join(sequence) for concatenating strings from an iterable |
+| R1714 | `consider-using-in` | Consider merging these comparisons with "in" to %r |
+| R1715 | `consider-using-get` | Consider using dict.get for getting values from a dict if a key is present or a default if not |
+| R1716 | `chained-comparison` | Simplify chained comparison between the operands |
+| R1717 | `consider-using-dict-comprehension` | Consider using a dictionary comprehension |
+| R1718 | `consider-using-set-comprehension` | Consider using a set comprehension |
 | W0101 | `unreachable` | Unreachable code |
 | W0102 | `dangerous-default-value` | Dangerous default value %s as argument |
 | W0104 | `pointless-statement` | Statement seems to have no effect |
@@ -175,6 +197,7 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | W0123 | `eval-used` | Use of eval |
 | W0124 | `confusing-with-statement` | Following "as" with another context manager looks like a tuple. |
 | W0125 | `using-constant-test` | Using a conditional statement with a constant value |
+| W0143 | `comparison-with-callable` | Comparing against a callable, did you omit the parenthesis? |
 | W0150 | `lost-exception` | %s statement in finally block may swallow exception |
 | W0199 | `assert-on-tuple` | Assert called on a 2-uple. Did you mean 'assert x,y'? |
 | W0201 | `attribute-defined-outside-init` | Attribute %r defined outside \_\_init\_\_ |
@@ -212,14 +235,20 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | W0623 | `redefine-in-handler` | Redefining name %r from %s in exception handler |
 | W0631 | `undefined-loop-variable` | Using possibly undefined loop variable %r |
 | W0640 | `cell-var-from-loop` | Cell variable %s defined in loop |
+| W0641 | `possibly-unused-variable` | Possibly unused variable %r |
+| W0642 | `self-cls-assignment` | Invalid assignment to %s in method |
 | W0702 | `bare-except` | No exception type(s) specified |
 | W0703 | `broad-except` | Catching too general exception %s |
 | W0705 | `duplicate-except` | Catching previously caught exception type %s |
+| W0706 | `try-except-raise` | The except handler raises immediately |
 | W0710 | `nonstandard-exception` | Exception doesn't inherit from standard "Exception" class |
 | W0711 | `binary-op-exception` | Exception to catch is the result of a binary "%s" operation |
+| W0715 | `raising-format-tuple` | Exception arguments suggest string formatting might be intended |
 | W1001 | `property-on-old-class` | Use of "property" on an old style class |
+| W1113 | `keyword-arg-before-vararg` | Keyword argument before variable positional arguments list in the definition of %s function |
 | W1201 | `logging-not-lazy` | Specify string format arguments as logging function parameters |
 | W1202 | `logging-format-interpolation` | Use % formatting in logging functions and pass the % parameters as arguments |
+| W1203 | `logging-fstring-interpolation` | Use % formatting in logging functions and pass the % parameters as arguments |
 | W1300 | `bad-format-string-key` | Format string dictionary key should be a string, not %s |
 | W1301 | `unused-format-string-key` | Unused key %r in format string dictionary |
 | W1302 | `bad-format-string` | Invalid format string |
@@ -234,6 +263,10 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | W1502 | `boolean-datetime` | Using datetime.time in a boolean context. |
 | W1503 | `redundant-unittest-assert` | Redundant use of %s with constant value %r |
 | W1505 | `deprecated-method` | Using deprecated method %s() |
+| W1506 | `bad-thread-instantiation` | threading.Thread needs the target function |
+| W1507 | `shallow-copy-environ` | Using copy.copy(os.environ). Use os.environ.copy() instead.  |
+| W1508 | `invalid-envvar-default` | %s default type is %s. Expected str or None. |
+| W1509 | `subprocess-popen-preexec-fn` | Using preexec\_fn keyword which may be unsafe in the presence of threads |
 | W1601 | `apply-builtin` | apply built-in referenced |
 | W1602 | `basestring-builtin` | basestring built-in referenced |
 | W1603 | `buffer-builtin` | buffer built-in referenced |
@@ -281,5 +314,17 @@ This list was automatically generated using [generate.py](generate.py). You can 
 | W1646 | `invalid-str-codec` | non-text encoding used in str.decode |
 | W1647 | `sys-max-int` | sys.maxint removed in Python 3 |
 | W1648 | `bad-python3-import` | Module moved in Python 3 |
-| W1649 | `deprecated-string-function` | Accessing a function method on the string module |
+| W1649 | `deprecated-string-function` | Accessing a deprecated function on the string module |
 | W1650 | `deprecated-str-translate-call` | Using str.translate with deprecated deletechars parameters |
+| W1651 | `deprecated-itertools-function` | Accessing a deprecated function on the itertools module |
+| W1652 | `deprecated-types-field` | Accessing a deprecated fields on the types module |
+| W1653 | `next-method-defined` | next method defined |
+| W1654 | `dict-items-not-iterating` | dict.items referenced when not iterating |
+| W1655 | `dict-keys-not-iterating` | dict.keys referenced when not iterating |
+| W1656 | `dict-values-not-iterating` | dict.values referenced when not iterating |
+| W1657 | `deprecated-operator-function` | Accessing a removed attribute on the operator module |
+| W1658 | `deprecated-urllib-function` | Accessing a removed attribute on the urllib module |
+| W1659 | `xreadlines-attribute` | Accessing a removed xreadlines attribute |
+| W1660 | `deprecated-sys-function` | Accessing a removed attribute on the sys module |
+| W1661 | `exception-escape` | Using an exception object that was bound by an except handler |
+| W1662 | `comprehension-escape` | Using a variable that was bound inside a comprehension |
