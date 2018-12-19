@@ -4,7 +4,7 @@ The list of symbolic names for every pylint message, which are particularly usef
 
 This list was automatically generated using [generate.py](generate.py). You can also get the list of messages yourself with the built-in pylint command `pylint --list-msgs`.
 
-_pylint version: 2.1.1_
+_pylint version: 2.2.2_
 
 | Code | Symbolic Name | Message |
 | ---- |-------------- | ------- |
@@ -41,7 +41,6 @@ _pylint version: 2.1.1_
 | C0412 | `ungrouped-imports` | Imports from package %s are not grouped |
 | C0413 | `wrong-import-position` | Import "%s" should be placed at the top of the module |
 | C0414 | `useless-import-alias` | Import alias does not rename original package |
-| C1001 | `old-style-class` | Old-style class defined. |
 | C1801 | `len-as-condition` | Do not use \`len(SEQUENCE)\` to determine if a sequence is empty |
 | E0100 | `init-is-generator` | \_\_init\_\_ method is a generator |
 | E0101 | `return-in-init` | Explicit return in \_\_init\_\_ |
@@ -82,7 +81,6 @@ _pylint version: 2.1.1_
 | E0603 | `undefined-all-variable` | Undefined variable name %r in \_\_all\_\_ |
 | E0604 | `invalid-all-object` | Invalid object %r in \_\_all\_\_, must contain only strings |
 | E0611 | `no-name-in-module` | No name %r in module %r |
-| E0632 | `unbalanced-tuple-unpacking` | Possible unbalanced tuple unpacking with sequence%s: left side has %d label(s), right side has %d value(s) |
 | E0633 | `unpacking-non-sequence` | Attempting to unpack a non-sequence%s |
 | E0701 | `bad-except-order` | Bad except clauses order (%s) |
 | E0702 | `raising-bad-type` | Raising %s while only classes or instances are allowed |
@@ -91,13 +89,11 @@ _pylint version: 2.1.1_
 | E0710 | `raising-non-exception` | Raising a new style class which doesn't inherit from BaseException |
 | E0711 | `notimplemented-raised` | NotImplemented raised - should raise NotImplementedError |
 | E0712 | `catching-non-exception` | Catching an exception which doesn't inherit from Exception: %s |
-| E1001 | `slots-on-old-class` | Use of \_\_slots\_\_ on an old style class |
-| E1002 | `super-on-old-class` | Use of super on an old style class |
 | E1003 | `bad-super-call` | Bad first argument %r given to super() |
 | E1004 | `missing-super-argument` | Missing argument to super() |
 | E1101 | `no-member` | %s %r has no %r member%s |
 | E1102 | `not-callable` | %s is not callable |
-| E1111 | `assignment-from-no-return` | Assigning to function call which doesn't return |
+| E1111 | `assignment-from-no-return` | Assigning result of a function call, where the function has no return |
 | E1120 | `no-value-for-parameter` | No value for argument %s in %s call |
 | E1121 | `too-many-function-args` | Too many positional arguments for %s call |
 | E1123 | `unexpected-keyword-arg` | Unexpected keyword argument %r in %s call |
@@ -105,7 +101,7 @@ _pylint version: 2.1.1_
 | E1125 | `missing-kwoa` | Missing mandatory keyword argument %r in %s call |
 | E1126 | `invalid-sequence-index` | Sequence index is not an int, slice, or instance with \_\_index\_\_ |
 | E1127 | `invalid-slice-index` | Slice index is not an int, None, or instance with \_\_index\_\_ |
-| E1128 | `assignment-from-none` | Assigning to function call which only returns None |
+| E1128 | `assignment-from-none` | Assigning result of a function call, where the function returns None |
 | E1129 | `not-context-manager` | Context manager '%s' doesn't implement \_\_enter\_\_ and \_\_exit\_\_. |
 | E1130 | `invalid-unary-operand-type` | %s |
 | E1131 | `unsupported-binary-operation` | %s |
@@ -129,6 +125,7 @@ _pylint version: 2.1.1_
 | E1304 | `missing-format-string-key` | Missing key %r in format string dictionary |
 | E1305 | `too-many-format-args` | Too many arguments for format string |
 | E1306 | `too-few-format-args` | Not enough arguments for format string |
+| E1307 | `bad-string-format-type` | Argument %r does not match format type %r |
 | E1310 | `bad-str-strip-call` | Suspicious argument in %s.%s call |
 | E1507 | `invalid-envvar-value` | %s does not support %s type argument |
 | E1601 | `print-statement` | print statement used |
@@ -182,6 +179,7 @@ _pylint version: 2.1.1_
 | R1716 | `chained-comparison` | Simplify chained comparison between the operands |
 | R1717 | `consider-using-dict-comprehension` | Consider using a dictionary comprehension |
 | R1718 | `consider-using-set-comprehension` | Consider using a set comprehension |
+| R1719 | `simplifiable-if-expression` | The if expression can be replaced with %s |
 | W0101 | `unreachable` | Unreachable code |
 | W0102 | `dangerous-default-value` | Dangerous default value %s as argument |
 | W0104 | `pointless-statement` | Statement seems to have no effect |
@@ -190,7 +188,6 @@ _pylint version: 2.1.1_
 | W0107 | `unnecessary-pass` | Unnecessary pass statement |
 | W0108 | `unnecessary-lambda` | Lambda may not be necessary |
 | W0109 | `duplicate-key` | Duplicate key %r in dictionary |
-| W0110 | `deprecated-lambda` | map/filter on lambda could be replaced by comprehension |
 | W0111 | `assign-to-new-keyword` | Name %s will become a keyword in Python %s |
 | W0120 | `useless-else-on-loop` | Else clause on loop without a break statement |
 | W0122 | `exec-used` | Use of exec |
@@ -213,7 +210,6 @@ _pylint version: 2.1.1_
 | W0301 | `unnecessary-semicolon` | Unnecessary semicolon |
 | W0311 | `bad-indentation` | Bad indentation. Found %s %s, expected %s |
 | W0312 | `mixed-indentation` | Found indentation with %ss instead of %ss |
-| W0332 | `lowercase-l-suffix` | Use of "l" as long integer identifier |
 | W0401 | `wildcard-import` | Wildcard import %s |
 | W0402 | `deprecated-module` | Uses of a deprecated module %r |
 | W0403 | `relative-import` | Relative import %r, should be %r |
@@ -234,6 +230,7 @@ _pylint version: 2.1.1_
 | W0622 | `redefined-builtin` | Redefining built-in %r |
 | W0623 | `redefine-in-handler` | Redefining name %r from %s in exception handler |
 | W0631 | `undefined-loop-variable` | Using possibly undefined loop variable %r |
+| W0632 | `unbalanced-tuple-unpacking` | Possible unbalanced tuple unpacking with sequence%s: left side has %d label(s), right side has %d value(s) |
 | W0640 | `cell-var-from-loop` | Cell variable %s defined in loop |
 | W0641 | `possibly-unused-variable` | Possibly unused variable %r |
 | W0642 | `self-cls-assignment` | Invalid assignment to %s in method |
@@ -241,10 +238,8 @@ _pylint version: 2.1.1_
 | W0703 | `broad-except` | Catching too general exception %s |
 | W0705 | `duplicate-except` | Catching previously caught exception type %s |
 | W0706 | `try-except-raise` | The except handler raises immediately |
-| W0710 | `nonstandard-exception` | Exception doesn't inherit from standard "Exception" class |
 | W0711 | `binary-op-exception` | Exception to catch is the result of a binary "%s" operation |
 | W0715 | `raising-format-tuple` | Exception arguments suggest string formatting might be intended |
-| W1001 | `property-on-old-class` | Use of "property" on an old style class |
 | W1113 | `keyword-arg-before-vararg` | Keyword argument before variable positional arguments list in the definition of %s function |
 | W1201 | `logging-not-lazy` | Specify string format arguments as logging function parameters |
 | W1202 | `logging-format-interpolation` | Use % formatting in logging functions and pass the % parameters as arguments |
@@ -257,8 +252,10 @@ _pylint version: 2.1.1_
 | W1305 | `format-combined-specification` | Format string contains both automatic field numbering and manual field specification |
 | W1306 | `missing-format-attribute` | Missing format attribute %r in format specifier %r |
 | W1307 | `invalid-format-index` | Using invalid lookup key %r in format specifier %r |
+| W1308 | `duplicate-string-formatting-argument` | Duplicate string formatting argument %r, consider passing as named argument |
 | W1401 | `anomalous-backslash-in-string` | Anomalous backslash in string: '%s'. String constant might be missing an r prefix. |
 | W1402 | `anomalous-unicode-escape-in-string` | Anomalous Unicode escape in byte string: '%s'. String constant might be missing an r or u prefix. |
+| W1403 | `implicit-str-concat-in-sequence` | Implicit string concatenation found in %s |
 | W1501 | `bad-open-mode` | "%s" is not a valid mode for open. |
 | W1502 | `boolean-datetime` | Using datetime.time in a boolean context. |
 | W1503 | `redundant-unittest-assert` | Redundant use of %s with constant value %r |
