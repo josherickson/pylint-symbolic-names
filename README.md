@@ -4,7 +4,7 @@ The list of symbolic names for every pylint message, which are particularly usef
 
 This list was automatically generated using [generate.py](generate.py). You can also get the list of messages yourself with the built-in pylint command `pylint --list-msgs`.
 
-_pylint version: 2.2.2_
+_pylint version: 2.3.1_
 
 | Code | Symbolic Name | Message |
 | ---- |-------------- | ------- |
@@ -180,6 +180,7 @@ _pylint version: 2.2.2_
 | R1717 | `consider-using-dict-comprehension` | Consider using a dictionary comprehension |
 | R1718 | `consider-using-set-comprehension` | Consider using a set comprehension |
 | R1719 | `simplifiable-if-expression` | The if expression can be replaced with %s |
+| R1720 | `no-else-raise` | Unnecessary "%s" after "raise" |
 | W0101 | `unreachable` | Unreachable code |
 | W0102 | `dangerous-default-value` | Dangerous default value %s as argument |
 | W0104 | `pointless-statement` | Statement seems to have no effect |
@@ -240,6 +241,7 @@ _pylint version: 2.2.2_
 | W0706 | `try-except-raise` | The except handler raises immediately |
 | W0711 | `binary-op-exception` | Exception to catch is the result of a binary "%s" operation |
 | W0715 | `raising-format-tuple` | Exception arguments suggest string formatting might be intended |
+| W0716 | `wrong-exception-operation` | Invalid exception operation. %s |
 | W1113 | `keyword-arg-before-vararg` | Keyword argument before variable positional arguments list in the definition of %s function |
 | W1201 | `logging-not-lazy` | Specify string format arguments as logging function parameters |
 | W1202 | `logging-format-interpolation` | Use % formatting in logging functions and pass the % parameters as arguments |
