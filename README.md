@@ -4,15 +4,17 @@ The list of symbolic names for every pylint message, which are particularly usef
 
 This list was automatically generated using [generate.py](generate.py). You can also get the list of messages yourself with the built-in pylint command `pylint --list-msgs`.
 
-_pylint version: 2.3.1_
+_pylint version: 2.4.4_
 
 | Code | Symbolic Name | Message |
 | ---- |-------------- | ------- |
 | C0102 | `blacklisted-name` | Black listed name "%s" |
 | C0103 | `invalid-name` | %s name "%s" doesn't conform to %s |
-| C0111 | `missing-docstring` | Missing %s docstring |
 | C0112 | `empty-docstring` | Empty %s docstring |
 | C0113 | `unneeded-not` | Consider changing "%s" to "%s" |
+| C0114 | `missing-module-docstring` | Missing module docstring |
+| C0115 | `missing-class-docstring` | Missing class docstring |
+| C0116 | `missing-function-docstring` | Missing function or method docstring |
 | C0121 | `singleton-comparison` | Comparison to %s should be %s |
 | C0122 | `misplaced-comparison-constant` | Comparison should be %s |
 | C0123 | `unidiomatic-typecheck` | Using type() instead of isinstance() for a typecheck. |
@@ -41,7 +43,8 @@ _pylint version: 2.3.1_
 | C0412 | `ungrouped-imports` | Imports from package %s are not grouped |
 | C0413 | `wrong-import-position` | Import "%s" should be placed at the top of the module |
 | C0414 | `useless-import-alias` | Import alias does not rename original package |
-| C1801 | `len-as-condition` | Do not use \`len(SEQUENCE)\` to determine if a sequence is empty |
+| C0415 | `import-outside-toplevel` | Import outside toplevel (%s) |
+| C1801 | `len-as-condition` | Do not use \`len(SEQUENCE)\` without comparison to determine if a sequence is empty |
 | E0100 | `init-is-generator` | \_\_init\_\_ method is a generator |
 | E0101 | `return-in-init` | Explicit return in \_\_init\_\_ |
 | E0102 | `function-redefined` | %s already defined line %s |
@@ -71,6 +74,7 @@ _pylint version: 2.3.1_
 | E0239 | `inherit-non-class` | Inheriting %r, which is not a class. |
 | E0240 | `inconsistent-mro` | Inconsistent method resolution order for class %r |
 | E0241 | `duplicate-bases` | Duplicate bases for class %r |
+| E0242 | `class-variable-slots-conflict` | Value %r in slots conflicts with class variable |
 | E0301 | `non-iterator-returned` | \_\_iter\_\_ returns non-iterator |
 | E0302 | `unexpected-special-method-signature` | The special method %r expects %s param(s), %d %s given |
 | E0303 | `invalid-length-returned` | \_\_len\_\_ does not return non-negative integer |
@@ -90,7 +94,6 @@ _pylint version: 2.3.1_
 | E0711 | `notimplemented-raised` | NotImplemented raised - should raise NotImplementedError |
 | E0712 | `catching-non-exception` | Catching an exception which doesn't inherit from Exception: %s |
 | E1003 | `bad-super-call` | Bad first argument %r given to super() |
-| E1004 | `missing-super-argument` | Missing argument to super() |
 | E1101 | `no-member` | %s %r has no %r member%s |
 | E1102 | `not-callable` | %s is not callable |
 | E1111 | `assignment-from-no-return` | Assigning result of a function call, where the function has no return |
@@ -114,6 +117,7 @@ _pylint version: 2.3.1_
 | E1138 | `unsupported-delete-operation` | %r does not support item deletion |
 | E1139 | `invalid-metaclass` | Invalid metaclass %r used |
 | E1140 | `unhashable-dict-key` | Dict key is unhashable |
+| E1141 | `dict-iter-missing-items` | Unpacking a dictionary in iteration without calling .items() |
 | E1200 | `logging-unsupported-format` | Unsupported logging format character %r (%#02x) at index %d |
 | E1201 | `logging-format-truncated` | Logging format string ends in middle of conversion specifier |
 | E1205 | `logging-too-many-args` | Too many arguments for logging format string |
@@ -149,6 +153,7 @@ _pylint version: 2.3.1_
 | R0202 | `no-classmethod-decorator` | Consider using a decorator instead of calling classmethod |
 | R0203 | `no-staticmethod-decorator` | Consider using a decorator instead of calling staticmethod |
 | R0205 | `useless-object-inheritance` | Class %r inherits from object, can be safely removed from bases in python3 |
+| R0206 | `property-with-parameters` | Cannot have defined parameters for properties |
 | R0401 | `cyclic-import` | Cyclic import (%s) |
 | R0801 | `duplicate-code` | Similar lines in %s files %s |
 | R0901 | `too-many-ancestors` | Too many ancestors (%s/%s) |
@@ -181,6 +186,10 @@ _pylint version: 2.3.1_
 | R1718 | `consider-using-set-comprehension` | Consider using a set comprehension |
 | R1719 | `simplifiable-if-expression` | The if expression can be replaced with %s |
 | R1720 | `no-else-raise` | Unnecessary "%s" after "raise" |
+| R1721 | `unnecessary-comprehension` | Unnecessary use of a comprehension |
+| R1722 | `consider-using-sys-exit` | Consider using sys.exit() |
+| R1723 | `no-else-break` | Unnecessary "%s" after "break" |
+| R1724 | `no-else-continue` | Unnecessary "%s" after "continue" |
 | W0101 | `unreachable` | Unreachable code |
 | W0102 | `dangerous-default-value` | Dangerous default value %s as argument |
 | W0104 | `pointless-statement` | Statement seems to have no effect |
@@ -195,9 +204,12 @@ _pylint version: 2.3.1_
 | W0123 | `eval-used` | Use of eval |
 | W0124 | `confusing-with-statement` | Following "as" with another context manager looks like a tuple. |
 | W0125 | `using-constant-test` | Using a conditional statement with a constant value |
+| W0126 | `missing-parentheses-for-call-in-test` | Using a conditional statement with potentially wrong function or method call due to missing parentheses |
+| W0127 | `self-assigning-variable` | Assigning the same variable %r to itself |
+| W0128 | `redeclared-assigned-name` | Redeclared variable %r in assignment |
 | W0143 | `comparison-with-callable` | Comparing against a callable, did you omit the parenthesis? |
 | W0150 | `lost-exception` | %s statement in finally block may swallow exception |
-| W0199 | `assert-on-tuple` | Assert called on a 2-uple. Did you mean 'assert x,y'? |
+| W0199 | `assert-on-tuple` | Assert called on a 2-item-tuple. Did you mean 'assert x,y'? |
 | W0201 | `attribute-defined-outside-init` | Attribute %r defined outside \_\_init\_\_ |
 | W0211 | `bad-staticmethod-argument` | Static method with %r as first argument |
 | W0212 | `protected-access` | Access to a protected member %s of a client class |
@@ -208,17 +220,17 @@ _pylint version: 2.3.1_
 | W0232 | `no-init` | Class has no \_\_init\_\_ method |
 | W0233 | `non-parent-init-called` | \_\_init\_\_ method from a non direct base class %r is called |
 | W0235 | `useless-super-delegation` | Useless super delegation in method %r |
+| W0236 | `invalid-overridden-method` | Method %r was expected to be %r, found it instead as %r |
 | W0301 | `unnecessary-semicolon` | Unnecessary semicolon |
 | W0311 | `bad-indentation` | Bad indentation. Found %s %s, expected %s |
 | W0312 | `mixed-indentation` | Found indentation with %ss instead of %ss |
 | W0401 | `wildcard-import` | Wildcard import %s |
 | W0402 | `deprecated-module` | Uses of a deprecated module %r |
-| W0403 | `relative-import` | Relative import %r, should be %r |
 | W0404 | `reimported` | Reimport %r (imported line %s) |
 | W0406 | `import-self` | Module import itself |
+| W0407 | `preferred-module` | Prefer importing %r instead of %r |
 | W0410 | `misplaced-future` | \_\_future\_\_ import is not the first non docstring statement |
 | W0511 | `fixme` | %s |
-| W0512 | `invalid-encoded-data` | Cannot decode using encoding "%s", unexpected byte at position %d |
 | W0601 | `global-variable-undefined` | Global variable %r undefined at the module level |
 | W0602 | `global-variable-not-assigned` | Using global for %r but no assignment is done |
 | W0603 | `global-statement` | Using the global statement |
@@ -243,9 +255,9 @@ _pylint version: 2.3.1_
 | W0715 | `raising-format-tuple` | Exception arguments suggest string formatting might be intended |
 | W0716 | `wrong-exception-operation` | Invalid exception operation. %s |
 | W1113 | `keyword-arg-before-vararg` | Keyword argument before variable positional arguments list in the definition of %s function |
+| W1114 | `arguments-out-of-order` | Positional arguments appear to be out of order |
 | W1201 | `logging-not-lazy` | Specify string format arguments as logging function parameters |
-| W1202 | `logging-format-interpolation` | Use % formatting in logging functions and pass the % parameters as arguments |
-| W1203 | `logging-fstring-interpolation` | Use % formatting in logging functions and pass the % parameters as arguments |
+| W1202 | `logging-format-interpolation` | Use %s formatting in logging functions%s |
 | W1300 | `bad-format-string-key` | Format string dictionary key should be a string, not %s |
 | W1301 | `unused-format-string-key` | Unused key %r in format string dictionary |
 | W1302 | `bad-format-string` | Invalid format string |
@@ -266,6 +278,7 @@ _pylint version: 2.3.1_
 | W1507 | `shallow-copy-environ` | Using copy.copy(os.environ). Use os.environ.copy() instead.  |
 | W1508 | `invalid-envvar-default` | %s default type is %s. Expected str or None. |
 | W1509 | `subprocess-popen-preexec-fn` | Using preexec\_fn keyword which may be unsafe in the presence of threads |
+| W1510 | `subprocess-run-check` | Using subprocess.run without explicitly set \`check\` is not recommended. |
 | W1601 | `apply-builtin` | apply built-in referenced |
 | W1602 | `basestring-builtin` | basestring built-in referenced |
 | W1603 | `buffer-builtin` | buffer built-in referenced |
